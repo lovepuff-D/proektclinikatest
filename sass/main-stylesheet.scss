@@ -1,0 +1,1007 @@
+/*---------------Переменные-----------------------*/
+$color-black: rgba(37, 37, 37, 1);
+$color-gray: rgba(157, 157, 157, 1);
+$color-blue: rgba(30, 136, 229, 1);
+;
+
+/*---------------//Переменные-----------------------*/
+
+/*---------------Общие стили-----------------------*/
+@import "mygrid";
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+  margin: 0;
+  font-weight: 400;
+  line-height: 36px;
+  background-color: #FDFDFD;
+  
+  @include media-breakpoint-down(mb) {
+	line-height: 30px;
+  }
+}
+
+p {
+  font-size: 24px;
+  color: $color-gray;
+  margin: 0;
+  @include media-breakpoint-down(md) {
+	font-size: 22px;
+	text-align: center;
+  }
+  @include media-breakpoint-down(sm) {
+	font-size: 20px;
+	text-align: center;
+  }
+}
+
+button {
+  font-size: 20px;
+  font-family: 'Poppins', sans-serif;
+  border: none;
+  color: white;
+}
+
+a {
+  color: $color-black;
+  text-decoration: none;
+  transition: color .3s;
+  
+  &:hover {
+	color: $color-blue;
+  }
+}
+
+ul {
+  list-style: none;
+  margin-bottom: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+input {
+  border: none;
+  
+  &:focus-visible {
+	outline: none;
+  }
+}
+
+.btn {
+  transition: color .3s, background-color .3s, outline-color .3s;
+  background-color: #1E88E5;
+  
+  &:hover {
+	cursor: pointer;
+	outline: 1px solid $color-blue;
+	background-color: #e5e7ff4d;
+	color: $color-blue
+  }
+}
+
+.marked-word {
+  color: $color-blue;
+}
+
+.title {
+  line-height: 84px;
+  font-size: 56px;
+  margin-bottom: 25px;
+  font-weight: 500;
+  @include media-breakpoint-down(md) {
+	font-size: 56px;
+	text-align: center;
+  }
+  @include media-breakpoint-down(sm) {
+	font-size: 48px;
+  }
+  @include media-breakpoint-down(mb) {
+	font-size: 38px;
+	line-height: 54px;
+  }
+}
+
+/*---------------//Общие стили-----------------------*/
+
+/*---------------Bootstrap классы -----------------------*/
+.container {
+  @include make-container();
+  max-width: 1325px;
+}
+
+.my-row {
+  @include make-row();
+  margin-right: 0;
+  margin-left: 0;
+  
+  & > * {
+	@include make-col-ready();
+  }
+}
+
+/*---------------//Bootstrap классы-----------------------*/
+
+header {
+  top: 50px;
+  border-radius: 50px;
+  font-size: 20px;
+  position: relative;
+  height: 0;
+  
+  .navigation {
+	@extend .my-row;
+	@include make-row(12);
+	justify-content: center;
+	align-items: center;
+	background-color: white;
+	border-radius: 50px;
+	padding: 15px 20px;
+	position: relative;
+	z-index: 5;
+	overflow: visible;
+	
+	&__logo {
+	  @include make-col(2.5);
+	  
+	  a {
+		display: block;
+		
+		img {
+		  vertical-align: middle;
+		}
+	  }
+	}
+	
+	&__nav {
+	  @include make-col(7.5);
+	  display: flex;
+	  justify-content: space-around;
+	}
+	
+	&__button {
+	  @include make-col(2);
+	  text-align: center;
+	  
+	  button {
+		background-color: #1E88E5;
+		padding: 10px 30px;
+		border-radius: 50px;
+	  }
+	}
+	
+	&__burger {
+	  @include make-col();
+	  position: relative;
+	  
+	  .navigation-burger__nav {
+		position: absolute;
+		width: 280px;
+		height: 0px;
+		top: 80px;
+		right: 0;
+		text-align: right;
+		background-color: #f2fafa;
+		border-radius: 30px 0 30px 0px;
+		padding: 0px 15px;
+		box-shadow: 0px 0px 25px -9px $color-gray;
+		transition: height 1s, padding-top 1s, padding-bottom 1s;
+		overflow: hidden;
+		
+		li {
+		  margin-bottom: 15px;
+		}
+	  }
+	  
+	  .navigation-burger__nav_close {
+		height: 335px;
+		padding: 20px 15px;
+		
+		@include media-breakpoint-up(sm) {
+		  height: 280px;
+		}
+	  }
+	}
+	
+	
+	@include media-breakpoint-down(xl) {
+	  &__logo {
+		@include make-col(4);
+		
+		a {
+		  display: block;
+		  
+		  img {
+			vertical-align: middle;
+		  }
+		}
+	  }
+	  
+	  &__nav {
+		display: none;
+		justify-content: space-between;
+	  }
+	  
+	  &__button {
+		@include make-col(7);
+		text-align: right;
+		
+		button {
+		  background-color: #1E88E5;
+		  padding: 10px 30px;
+		  border-radius: 50px;
+		}
+	  }
+	  
+	  .navigation-burger__btn {
+		border: none;
+		width: 56px;
+		height: 56px;
+		position: relative;
+		border-radius: 50%;
+		background: $color-blue;
+		padding: 20px 15px;
+		justify-self: end;
+		margin-left: auto;
+		
+		.burger-item {
+		  height: 2px;
+		  background: white;
+		  margin-right: 0;
+		  margin-left: 0;
+		  transition: transform .5s, opacity .3s, width .5s;
+		}
+		
+		.burger-icon_top {
+		  margin-bottom: 5px;
+		}
+		
+		.burger-icon_middle {
+		
+		}
+		
+		.burger-icon_bottom {
+		  margin-top: 5px;
+		}
+		
+		&:hover {
+		  cursor: pointer;
+		}
+		
+		@include media-breakpoint-down(mb) {
+		  width: 46px;
+		  height: 46px;
+		  padding: 15px 12px;
+		}
+	  }
+	  
+	  .burger-close {
+		.burger-icon_top {
+		  transform: rotate(45deg) translate(5px, 5px);
+		}
+		
+		.burger-icon_middle {
+		  opacity: 0;
+		}
+		
+		.burger-icon_bottom {
+		  transform: rotate(-45deg) translate(5px, -5px);
+		}
+	  }
+	}
+	
+	@include media-breakpoint-down(md) {
+	  &__logo {
+		@include make-col(5);
+		
+		a {
+		  display: block;
+		  
+		  img {
+			vertical-align: middle;
+		  }
+		}
+	  }
+	  
+	  &__button {
+		@include make-col(5);
+		text-align: right;
+		
+		button {
+		  background-color: #1E88E5;
+		  padding: 10px 30px;
+		  border-radius: 50px;
+		}
+	  }
+	}
+	@include media-breakpoint-down(sm) {
+	  &__logo {
+		@include make-col(8);
+		
+		img {
+		  max-width: 100%;
+		}
+		
+		a {
+		  display: block;
+		  
+		  img {
+			vertical-align: middle;
+		  }
+		}
+	  }
+	  
+	  &__button {
+		@include make-col();
+		display: none;
+	  }
+	  
+	  &__burger {
+		.navigation-burger__nav {
+		  right: -10px;
+		  
+		  button {
+			padding: 10px 15px;
+			border-radius: 50px;
+		  }
+		  
+		  li {
+			padding-right: 15px;
+		  }
+		}
+	  }
+	}
+	@include media-breakpoint-up(sm) {
+	  &__burger {
+		.navigation-burger__nav {
+		  button {
+			display: none;
+		  }
+		}
+	  }
+	}
+  }
+}
+
+/*---------------Start block-----------------------*/
+.start-block__wrapper {
+  background: url("../img/start-block/bg.svg") no-repeat bottom;
+  background-size: cover;
+  position: relative;
+  top: -85px;
+  padding-top: 350px;
+  padding-bottom: 300px;
+  
+  @include media-breakpoint-down(mb) {
+	padding-top: 300px;
+	padding-bottom: 65px;
+  }
+}
+
+.start-block {
+  @extend .my-row;
+  
+  &__header-title {
+	font-size: 65px;
+	font-weight: 800;
+	margin-bottom: 50px;
+	
+	@include media-breakpoint-down(md) {
+	  font-size: 56px;
+	  margin-bottom: 35px;
+	}
+	@include media-breakpoint-down(sm) {
+	  font-size: 48px;
+	}
+	@include media-breakpoint-down(sm) {
+	  font-size: 38px;
+	}
+  }
+  
+  
+  .start-block {
+	&__content {
+	  @include make-col(6);
+	}
+	
+	&__art {
+	  @include make-col(6);
+	  background: url("../img/start-block/bg-art.png") no-repeat -10px -110px;
+	}
+	
+	&__form {
+	  @extend .my-row;
+	  margin-top: 85px;
+	  
+	  .form {
+		&__button {
+		  @include make-col(5);
+		  border-radius: 10px;
+		  padding: 20px 25px;
+		  font-size: 24px;
+		  font-weight: 600;
+		}
+		
+		&__search-input {
+		  @include make-col(7);
+		  position: relative;
+		  
+		  .search-input__item {
+			display: block;
+			border-radius: 10px;
+			height: 100%;
+			width: 100%;
+			padding-left: 25px;
+			color: #9D9D9D;
+			position: relative;
+			font-size: 20px;
+			
+			&:focus-visible {
+			  box-shadow: 0px 3px 6px -3px $color-gray;
+			}
+		  }
+		  
+		  .search-input__icon {
+			position: absolute;
+			width: 50px;
+			height: 50px;
+			background-color: $color-blue;
+			border-radius: 50%;
+			top: 50%;
+			right: 25px;
+			transform: translateY(-50%);
+			transition: background-color .3s;
+			
+			&:hover {
+			  background-color: #49667f;
+			  cursor: pointer;
+			}
+			
+			&:after {
+			  content: "";
+			  display: block;
+			  position: absolute;
+			  top: 50%;
+			  left: 50%;
+			  background: url("../img/start-block/seach-icon.png");
+			  width: 25px;
+			  height: 25px;
+			  z-index: 5;
+			  transform: translate(-50%, -50%);
+			}
+		  }
+		  
+		  @include media-breakpoint-down(mb) {
+			.search-input__icon {
+			  right: 15px;
+			}
+		  }
+		  @media screen and (max-width: 365px){
+			.search-input__item {
+			  font-size: 15px;
+			}
+		  }
+		}
+		
+		@include media-breakpoint-down(md) {
+		  
+		  &__button {
+			@include make-col(12);
+			order: 2;
+		  }
+		  
+		  &__search-input {
+			@include make-col(12);
+			margin-bottom: 50px;
+			padding: 0;
+			
+			input {
+			  padding: 20px 25px;
+			}
+		  }
+		}
+	  }
+	}
+	
+	@include media-breakpoint-down(xl) {
+	  &__content {
+		@include make-col(8);
+	  }
+	  
+	  &__art {
+		@include make-col(4);
+	  }
+	}
+	@include media-breakpoint-down(lg) {
+	  &__content {
+		@include make-col(12);
+	  }
+	  
+	  &__art {
+		display: none;
+	  }
+	}
+  }
+}
+
+/*---------------//Start block-----------------------*/
+
+/*---------------advantage-----------------------*/
+.advantage__wrapper {
+  margin-bottom: 200px;
+  
+  @include media-breakpoint-up(lg) {
+	margin-bottom: 200px;
+	height: 100px;
+	position: relative;
+	top: -200px;
+  }
+  
+  @include media-breakpoint-between(mb, md) {
+	padding: 0 20px;
+  }
+}
+
+.advantage {
+  @extend .my-row;
+  box-shadow: 0px 10px 20px 0px rgb(0 0 0 / 5%);
+  border-radius: 10px;
+  padding: 40px;
+  background-color: white;
+  
+  @include media-breakpoint-down(mb) {
+	padding-left: 0;
+	padding-right: 0;
+  }
+  
+  &-item {
+	@include make-col(4);
+	text-align: center;
+	
+	&__picture {
+	  border-radius: 50%;
+	  background-color: #F2FAFA;
+	  width: 110px;
+	  height: 110px;
+	  margin: 0 auto 25px;
+	  position: relative;
+	  
+	  & > * {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		
+	  }
+	}
+	
+	&__header {
+	  font-size: 30px;
+	  margin-bottom: 15px;
+	}
+	
+	@include media-breakpoint-down(lg) {
+	  @include make-col(12);
+	  margin-bottom: 50px;
+	}
+  }
+}
+
+/*---------------//advantage-----------------------*/
+
+/*---------------about-----------------------*/
+.about__wrapper {
+  margin-bottom: 175px;
+  
+  @include media-breakpoint-down(mb) {
+	margin-bottom: 85px;
+  }
+}
+
+.about {
+  @extend .my-row;
+  min-height: 550px;
+  
+  &__achievement {
+	@include make-col(7);
+	position: relative;
+	
+	.about-achievement {
+	  &__block {
+		position: absolute;
+		box-shadow: 0px 0px 15px -9px $color-gray;
+		padding: 15px 25px;
+		text-align: center;
+		border-radius: 10px;
+	  }
+	  
+	  &__header {
+		color: $color-blue;
+		font-weight: 600;
+		font-size: 36px;
+		margin-bottom: 5px;
+	  }
+	}
+	
+	.about-achievement_position-1 {
+	  top: 15px;
+	  right: 250px;
+	}
+	
+	.about-achievement_position-2 {
+	  top: 190px;
+	  right: 35px;
+	}
+	
+	@include media-breakpoint-up(md) {
+	  background: url("../img/about/bg-woman.png") no-repeat left bottom;
+	}
+	
+	@include media-breakpoint-down(md) {
+	  .about-achievement {
+		&__block {
+		  position: static;
+		  margin-bottom: 30px;
+		}
+	  }
+	}
+  }
+  
+  &__content {
+	@include make-col(5);
+	text-align: right;
+	
+	.about-content {
+	  &__header {
+	  }
+	}
+  }
+  
+  @include media-breakpoint-down(lg) {
+	flex-direction: column;
+	&__achievement {
+	  margin-top: 50px;
+	  @include make-col(12);
+	  height: 550px;
+	  @include media-breakpoint-down(md) {
+		height: auto;
+	  }
+	}
+	
+	&__content {
+	  order: -1;
+	  @include make-col(12);
+	}
+  }
+  
+}
+
+/*---------------//about-----------------------*/
+
+/*---------------about-----------------------*/
+.our-work__wrapper {
+  margin-bottom: 75px;
+}
+
+.our-work {
+  @extend .my-row;
+  align-items: center;
+  
+  .our-work-header {
+	@include make-col(8);
+	&__subtitle {
+	  font-size: 36px;
+	  @include media-breakpoint-down(mb) {
+		margin-bottom: 10px;
+		font-size: 32px;
+	  }
+	}
+	
+	@include media-breakpoint-down(md) {
+	  @include make-col(12);
+	  margin-bottom: 35px;
+	}
+  }
+  
+  .our-work-header__arrow {
+	@include make-col();
+	display: flex;
+	justify-content: flex-end;
+	
+	&_right {
+	  margin-left: 25px;
+	}
+	
+	.arrow {
+	  display: inline-block;
+	  width: 62px;
+	  height: 62px;
+	  border-radius: 50%;
+	  background-color: white;
+	  transition: background-color .3s, box-shadow 0.3s;
+	  box-shadow: 0px 0px 15px -9px $color-gray;
+	  position: relative;
+	  
+	  svg {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		
+		path {
+		  fill: $color-blue;
+		}
+	  }
+	  
+	  &:hover {
+		cursor: pointer;
+		background-color: $color-blue;
+		
+		svg {
+		  path {
+			fill: white;
+		  }
+		}
+	  }
+	}
+	
+	.animation-click {
+	  animation: click 0.3s 1 ease-in-out;
+	  
+	  @keyframes click {
+		from {
+		  box-shadow: 0px 0px 0px 0px $color-gray;
+		}
+		to {
+		  box-shadow: 0px 0px 15px 0px $color-blue;
+		}
+	  }
+	}
+	
+	@include media-breakpoint-down(md) {
+	  display: none;
+	}
+  }
+}
+
+.slider {
+  @extend .my-row;
+  justify-content: space-between;
+  padding: 20px 0;
+  overflow: hidden;
+  
+  .slider__item {
+	border-radius: 30px;
+	padding: 20px;
+	@include make-col(4);
+	max-width: 372px;
+	margin-right: 80px;
+	box-shadow: 0px 0px 15px -8px $color-gray;
+	text-align: center;
+	@media screen and (max-width: 400px) {
+	  max-width: 280px;
+	  padding: 20px 10px;
+	}
+	
+  }
+  
+  .slider-item {
+	
+	img {
+	  margin-bottom: 35px;
+	}
+	
+	&__header {
+	  font-size: 36px;
+	  margin-bottom: 10px;
+	  font-weight: 500;
+	  @include media-breakpoint-down(mb) {
+		font-size: 28px;
+	  }
+	}
+	
+	&__subtitle {
+	  font-size: 24px;
+	  margin-bottom: 30px;
+	  @include media-breakpoint-down(mb) {
+		font-size: 18px;
+	  }
+	}
+	
+	&__coast {
+	  @extend .my-row;
+	  align-items: center;
+	  
+	  & > * {
+		padding: 0;
+	  }
+	  
+	  p {
+		@include make-col(6);
+		font-size: 28px;
+		color: $color-black;
+		font-weight: 500;
+	  }
+	  
+	  a {
+		@include make-col(6);
+		font-size: 24px;
+		text-decoration: underline;
+		color: $color-blue;
+		
+		&:hover {
+		  color: $color-black;
+		}
+		
+		
+	  }
+	  
+	  @include media-breakpoint-down(sm) {
+		p {
+		  @include make-col(12);
+		  font-size: 24px;
+		  margin-bottom: 15px;
+		}
+		
+		a {
+		  @include make-col(12);
+		  font-size: 18px;
+		}
+	  }
+	  
+	  @include media-breakpoint-down(mb) {
+		p {
+		  @include make-col(12);
+		  font-size: 22px;
+		  margin-bottom: 10px;
+		}
+		
+		a {
+		  @include make-col(12);
+		}
+	  }
+	}
+  }
+  
+  .slick-track {
+	display: flex;
+  }
+}
+
+/*---------------//about-----------------------*/
+
+
+/*---------------Footer-----------------------*/
+
+footer {
+  background-color: white;
+  padding-top: 150px;
+  margin-bottom: 50px;
+  
+  .footer-inner {
+	@extend .my-row;
+	display: flex;
+	justify-content: space-between;
+	background-color: white;
+	margin-bottom: 85px;
+	font-size: 18px;
+	
+	.footer__item {
+	  @include make-col(3);
+	}
+	
+	h4 {
+	  margin-bottom: 25px;
+	}
+	
+	li, p {
+	  line-height: 27px;
+	}
+	
+	svg {
+	  path {
+		transition: fill .3s;
+	  }
+	}
+	
+	a:hover {
+	  svg path {
+		fill: $color-blue;
+	  }
+	}
+	
+	&__logo {
+	  
+	  p {
+		color: $color-black;
+		text-align: left;
+		font-size: 18px;
+		margin-bottom: 20px;
+	  }
+	  
+	  .social-links__item {
+		display: inline-block;
+		margin-right: 35px;
+		text-align: center;
+		
+		a {
+		  display: block;
+		  width: 45px;
+		}
+	  }
+	  
+	  .social-links{
+		@include media-breakpoint-down(mb) {
+		  margin-top: 15px;
+		}
+	  }
+	  
+	  @include media-breakpoint-down(mb) {
+		p {
+		  display: none;
+		}
+	  }
+	}
+	
+	&__call-us {
+	  li {
+		line-height: 50px;
+	  }
+	}
+	
+	@include media-breakpoint-down(lg) {
+	  text-align: center;
+	  margin-bottom: 0;
+	  .footer__item {
+		@include make-col(12);
+		margin-bottom: 50px;
+	  }
+	  
+	  &__logo {
+		order: 5;
+		
+		p {
+		  text-align: center;
+		  width: 80%;
+		  margin: 0 auto;
+		  margin-bottom: 15px;
+		  @include media-breakpoint-down(mb) {
+			width: 100%;
+		  }
+		}
+		
+		.social-links__item {
+		  margin-right: 0;
+		}
+	  }
+	}
+  }
+  
+  .copyright {
+	@extend .my-row;
+	padding-bottom: 25px;
+	
+	p {
+	  text-align: center;
+	  font-size: 18px;
+	}
+  }
+  
+  @include media-breakpoint-down(lg) {
+	padding-top: 50px;
+	margin-bottom: 0;
+  }
+}
+
+
+/*---------------//Footer-----------------------*/

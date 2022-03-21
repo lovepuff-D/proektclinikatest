@@ -1,0 +1,17 @@
+$grid-breakpoints: (
+		xs: 0,
+		mb: 480px,
+		sm: 600px,
+		md: 768px,
+		lg: 992px,
+		xl: 1300px,
+		xxl: 1400px
+) !default;
+
+@import "functions";
+@import "variables";
+@import "mixins/breakpoints";
+@import "mixins/container";
+@import "mixins/grid";
+@import "mixins";
+//Пути прописаные в gulpfile -> includePaths
