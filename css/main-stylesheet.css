@@ -512,7 +512,6 @@ header .navigation__burger .navigation-burger__nav_close {
 /*---------------advantage-----------------------*/
 .advantage__wrapper {
   margin-bottom: 200px;
-  overflow: hidden;
 }
 @media (min-width: 992px) {
   .advantage__wrapper {
