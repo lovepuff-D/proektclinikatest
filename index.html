@@ -19,10 +19,9 @@
 	<!--Подключение Jquery-->
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<!--//Подключение Jquery-->
-	<!--Подключение ScrollTrigger-->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollTrigger/1.0.5/ScrollTrigger.min.js
-"></script>
-	<!--//Подключение ScrollTrigger-->
+	<!--Подключение Стилей AOS-->
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+	<!--//Подключение Стилей AOS-->
 </head>
 <body>
 <header>
@@ -104,22 +103,22 @@
 </section>
 <section class="advantage__wrapper">
 	<div class="container">
-		<div class="advantage">
-			<div class="advantage-item">
+		<div class="advantage" data-aos="fade-up">
+			<div class="advantage-item" data-aos="zoom-in">
 				<div class="advantage-item__picture">
 					<img src="./img/advantage/account.png" alt="">
 				</div>
 				<h3 class="advantage-item__header">Create Account</h3>
 				<p class="advantage__subtitle">First you have to create a account here</p>
 			</div>
-			<div class="advantage-item">
+			<div class="advantage-item" data-aos="zoom-in">
 				<div class="advantage-item__picture">
 					<img src="./img/advantage/search-work.png" alt="">
 				</div>
 				<h3 class="advantage-item__header">Search work </h3>
 				<p class="advantage__subtitle">Search the best freelance work here</p>
 			</div>
-			<div class="advantage-item">
+			<div class="advantage-item" data-aos="zoom-in">
 				<div class="advantage-item__picture">
 					<img src="./img/advantage/save-apply.png" alt="">
 				</div>
@@ -132,7 +131,7 @@
 <section class="about__wrapper">
 	<div class="container">
 		<div class="about">
-			<div class="about__achievement about-achievement">
+			<div class="about__achievement about-achievement" data-aos="fade-right">
 				<div class="about-achievement__block about-achievement_position-1">
 					<div class="about-achievement__header">500+</div>
 					<div class="about-achievement__subtitle"><p>freelancers</p></div>
@@ -142,7 +141,7 @@
 					<div class="about-achievement__subtitle"><p>freelance work Posted</p></div>
 				</div>
 			</div>
-			<div class="about__content about-content">
+			<div class="about__content about-content" data-aos="fade-left">
 				<h2 class="about-content__header title">
 					Find The best <span class="marked-word">Freelancers</span> Here
 				</h2>
@@ -352,5 +351,11 @@
 <!--Подключение index.js-->
 <script src="index.js"></script>
 <!--//Подключение index.js-->
+<!--Подключение AOS-->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+	AOS.init()
+</script>
+<!--//Подключение AOS-->
 </body>
 </html>
