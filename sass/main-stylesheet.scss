@@ -637,16 +637,32 @@ header {
 		font-size: 36px;
 		margin-bottom: 5px;
 	  }
+
+	}
+
+	@include media-breakpoint-down(xl) {
+		margin-top: 65px;
+		@include make-col(12);
+	  order: 2;
+		height: 550px;
 	}
 	
 	.about-achievement_position-1 {
 	  top: 15px;
 	  right: 250px;
+	  @include media-breakpoint-between(lg, xl) {
+	    top: 190px;
+			right: 400px;
+  	}
 	}
 	
 	.about-achievement_position-2 {
 	  top: 190px;
 	  right: 35px;
+	  @include media-breakpoint-between(lg, xl) {
+	  	top: 20px;
+			right: 200px;
+  	}
 	}
 	
 	@include media-breakpoint-up(md) {
@@ -671,6 +687,10 @@ header {
 	  &__header {
 	  }
 	}
+
+	@include media-breakpoint-down(xl) {
+		@include make-col(12);
+	}
   }
   
   @include media-breakpoint-down(lg) {
@@ -678,7 +698,6 @@ header {
 	&__achievement {
 	  margin-top: 50px;
 	  @include make-col(12);
-	  height: 550px;
 	  @include media-breakpoint-down(md) {
 		height: auto;
 	  }
