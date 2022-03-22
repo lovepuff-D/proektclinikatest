@@ -512,6 +512,7 @@ header .navigation__burger .navigation-burger__nav_close {
 /*---------------advantage-----------------------*/
 .advantage__wrapper {
   margin-bottom: 200px;
+  overflow: hidden;
 }
 @media (min-width: 992px) {
   .advantage__wrapper {
@@ -574,6 +575,7 @@ header .navigation__burger .navigation-burger__nav_close {
 /*---------------about-----------------------*/
 .about__wrapper {
   margin-bottom: 175px;
+  overflow: hidden;
 }
 @media (max-width: 479.98px) {
   .about__wrapper {
@@ -602,34 +604,13 @@ header .navigation__burger .navigation-burger__nav_close {
   font-size: 36px;
   margin-bottom: 5px;
 }
-@media (max-width: 1299.98px) {
-  .about__achievement {
-    margin-top: 65px;
-    flex: 0 0 auto;
-    width: 100%;
-    order: 2;
-    height: 550px;
-  }
-}
 .about__achievement .about-achievement_position-1 {
   top: 15px;
   right: 250px;
 }
-@media (min-width: 992px) and (max-width: 1299.98px) {
-  .about__achievement .about-achievement_position-1 {
-    top: 190px;
-    right: 400px;
-  }
-}
 .about__achievement .about-achievement_position-2 {
   top: 190px;
   right: 35px;
-}
-@media (min-width: 992px) and (max-width: 1299.98px) {
-  .about__achievement .about-achievement_position-2 {
-    top: 20px;
-    right: 200px;
-  }
 }
 @media (min-width: 768px) {
   .about__achievement {
@@ -647,12 +628,6 @@ header .navigation__burger .navigation-burger__nav_close {
   width: 41.66666667%;
   text-align: right;
 }
-@media (max-width: 1299.98px) {
-  .about__content {
-    flex: 0 0 auto;
-    width: 100%;
-  }
-}
 @media (max-width: 991.98px) {
   .about {
     flex-direction: column;
@@ -661,6 +636,7 @@ header .navigation__burger .navigation-burger__nav_close {
     margin-top: 50px;
     flex: 0 0 auto;
     width: 100%;
+    height: 550px;
   }
 }
 @media (max-width: 991.98px) and (max-width: 767.98px) {
