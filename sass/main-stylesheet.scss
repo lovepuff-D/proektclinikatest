@@ -545,7 +545,6 @@ header {
 /*---------------advantage-----------------------*/
 .advantage__wrapper {
   margin-bottom: 200px;
-  overflow: hidden;
   
   @include media-breakpoint-up(lg) {
 	margin-bottom: 200px;
